@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Acceso Misterioso</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: monospace;
+    }
+    #resultado {
+      margin-top: 20px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      background-color: #111;
+      color: white;
+      border: none;
+      border-bottom: 2px solid white;
+      font-size: 1rem;
+      text-align: center;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: white;
+      color: black;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ingresa el código</h1>
+  <input type="text" id="codigo" placeholder="Código secreto">
+  <button onclick="verificarCodigo()">Entrar</button>
+  <div id="resultado"></div>
+
+  <script>
+    const codigos = {
+      "luzoscura": "https://tu-sitio.com/pista1.html",
+      "fragmento13": "https://tu-sitio.com/pista2.html"
+    };
+
+    function verificarCodigo() {
+      const entrada = document.getElementById('codigo').value.toLowerCase();
+      const resultado = document.getElementById('resultado');
+
+      if (codigos[entrada]) {
+        window.location.href = codigos[entrada];
+      } else {
+        resultado.innerText = "Código incorrecto... o aún no estás listo.";
+      }
+    }
+  </script>
+</body>
+</html>
